@@ -1,3 +1,5 @@
+import { onSnake, expandSnake } from "./snake.js";
+
 let food = { x: 10, y: 10 };
 const EXPANSION_RATE = 1; // Esta constante va a definir cuanto crece la serpiente cada vez que come
 
