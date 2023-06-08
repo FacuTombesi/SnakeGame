@@ -20,7 +20,7 @@ const gameBoard = document.getElementById("game_board"); // Selecciono el div qu
 function main(currentTime) {
     if (gameOver) {
         if (confirm("You lose. Press OK to restart.")) {
-            window.location = "/";
+            window.location = "/SnakeGame/index.html";
         };
         return;
     };
