@@ -4,6 +4,10 @@ import {
     draw as drawSnake,
     SNAKE_SPEED 
 } from "./snake.js";
+import { 
+    update as updateFood,
+    draw as drawFood 
+} from "./food.js";
 
 let lastRenderTime = 0; // Sirve para chequear cuando fue la ultima vez que se renderizo
 const gameBoard = document.getElementById("game_board"); // Selecciono el div que defini como game_board y lo guardo en una constante
@@ -27,8 +31,11 @@ window.requestAnimationFrame(main); // Inicio el loop
 
 function update() {
     updateSnake();
+    updateFood();
 };
 
 function draw() {
+    gameBoard.innerHTML = ""; // Actualiza el tablero para que cuando se mueva la serpiente se borre su ubicacion pasada
     drawSnake(gameBoard);
+    drawFood(gameBoard);
 };
