@@ -32,14 +32,15 @@ export function expandSnake(amount) {
     newSegments += amount; // Aumento la cantidad de segmentos cada vez que se expande segun la cantidad que defina
 };
 
-export function onSnake(position) { // Esta funcion va a chequear que la posicion de la serpiente sea igual o no a la de la comida
-    return snakeBody.some(segment => { 
+export function onSnake(position, { ignoreHead = false } = {}) { // Esta funcion va a chequear que la posicion de la serpiente sea igual o no a la de la comida
+    return snakeBody.some((segment, index) => { 
+        if (ignoreHead && index == 0) return false; // ignoreHead se setea default en false para evitar que la posicion de la cabeza sea ignorada
         return equalPositions(segment, position);
     });
 };
 
 function equalPositions(pos1, pos2) { // Funcion para chequear posiciones
-    return pos1.x === pos2.x && pos1.y === pos2.y // Retorna una condicion que se fija si las posiciones de pos1 y pos2 son exactas en ambos ejes
+    return (pos1.x === pos2.x && pos1.y === pos2.y) // Retorna una condicion que se fija si las posiciones de pos1 y pos2 son exactas en ambos ejes
 };
 
 function addSegments() { // Funcion encargada de agregar segmentos cada vez que la serpiente come
@@ -48,4 +49,12 @@ function addSegments() { // Funcion encargada de agregar segmentos cada vez que 
     };
 
     newSegments = 0; // Vuelvo a setear newSegments en 0 para que agregue 1 solo segmento y no agregue indefinidamente
+};
+
+export function getSnakeHead() {
+    return snakeBody[0];
+};
+
+export function snakeIntersection() { // Se fija si la serpiente se choca con si misma
+    return onSnake(snakeBody[0], { ignoreHead: true }); // En este caso ignoreHead es true ya que si la dejo en false marcaria como que se esta chocando con tu propia cabeza desde el principio y siempre daria game over
 };
