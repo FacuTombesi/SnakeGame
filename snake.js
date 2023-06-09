@@ -1,6 +1,6 @@
 import { getInputDirection } from "./input.js";
 
-export const SNAKE_SPEED = 5; // Este numero va a definir cuantas veces se mueve la serpiente por segundo
+// export const SNAKE_SPEED = 5; // Este numero va a definir cuantas veces se mueve la serpiente por segundo
 const snakeBody = [{ x: 21, y: 21 }]; // Seteo las coordenadas donde se va a renderizar la serpiente inicialmente. En este caso, como el grid es de 41x41, seteo la serpiente en 21x21 siendo estas coordenadas el medio de la pantalla
 let newSegments = 0; // Determina la cantidad de segmentos iniciales de la serpiente
 

@@ -5,36 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SnakeGame</title>
-        <style>
-            body {
-                min-height: 100vh;
-                width: 100vw;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 0;
-                background-color: black;
-            }
-
-            #game_board {
-                background-color: #CCC;
-                width: 100vmin;
-                height: 100vmin;
-                display: grid;
-                grid-template-rows: repeat(41, 1fr);
-                grid-template-columns: repeat(41, 1fr);
-            }
-
-            .snake {
-                background-color: hsl(200, 100%, 50%);
-                border: .25vmin solid black;
-            }
-
-            .food {
-                background-color: hsl(50, 100%, 50%);
-                border: .25vmin solid black;
-            }
-        </style>
+        <link href="styles.css" rel="stylesheet">
         <!-- 
             defer: Hace que el script se cargue antes que el body
             type="module": Le digo a javascript que voy a usar imports y exports para facilitar el manejo del codigo
@@ -42,6 +13,21 @@
         <script src="game.js" defer type="module"></script>
     </head>
     <body>
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <h2>Game Over</h2>
+                <p>You lose. Press OK to restart.</p>
+                <button id="restartButton">OK</button>
+            </div>
+        </div>
+        <div id="difficulty_select">
+            <span>Select difficulty</span>
+            <div id="difficulty_options">
+                <button difficulty>EASY</button>
+                <button difficulty>NORMAL</button>
+                <button difficulty>HARD</button>
+            </div>
+        </div>
         <div id="game_board"></div>
     </body>
 </html>

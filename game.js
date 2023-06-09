@@ -4,7 +4,7 @@ import {
     draw as drawSnake,
     getSnakeHead,
     snakeIntersection,
-    SNAKE_SPEED 
+    // SNAKE_SPEED 
 } from "./snake.js";
 import { 
     update as updateFood,
@@ -14,14 +14,50 @@ import { outsideGrid } from "./grid.js";
 
 let lastRenderTime = 0; // Sirve para chequear cuando fue la ultima vez que se renderizo
 let gameOver = false;
+// Me traigo el modal y el boton de reinicio a traves de sus IDs
+const gameOverModal = document.getElementById("gameOverModal");
+const restartButton = document.getElementById("restartButton");
 const gameBoard = document.getElementById("game_board"); // Selecciono el div que defini como game_board y lo guardo en una constante
+const difficultyButtons = document.querySelectorAll("[difficulty]"); // Selecciono todos los botones con el query difficulty
+let SNAKE_SPEED = 0; // Movi el SNAKE_SPEED al js principal para no tener problemas al intentar modificarlo
+
+function selectDifficulty (button) { // Funcion para elegir dificultad a la que le paso por parametro cada boton
+    const difficultySelect = document.getElementById("difficulty_select"); // Selecciono por ID al div al que voy a esconder
+
+    switch (button) { // switch para cada uno de los casos
+        case "EASY":
+            console.log("Selected difficulty: EASY");
+            SNAKE_SPEED = 5; // Modifico la velocidad,...
+            difficultySelect.style.visibility = "hidden"; // ... escondo el div...
+            startGame(); // ... y empiezo el juego
+            break;
+        case "NORMAL":
+            console.log("Selected difficulty: NORMAL");
+            SNAKE_SPEED = 12;
+            difficultySelect.style.visibility = "hidden";
+            startGame();
+            break;
+        case "HARD":
+            console.log("Selected difficulty: HARD");
+            SNAKE_SPEED = 30;
+            difficultySelect.style.visibility = "hidden";
+            startGame();
+            break;
+    };
+};
+
+function startGame() { // Nueva funcion encargada de iniciar el loop
+    window.requestAnimationFrame(main);
+}
 
 // main() es la funcion que se va a encargar del game loop renderizando una y otra vez los frames
 function main(currentTime) {
     if (gameOver) {
-        if (confirm("You lose. Press OK to restart.")) {
-            window.location = "/";
-        };
+        // if (confirm("You lose. Press OK to restart.")) {
+        //     window.location = "/";
+        // };
+        // return;
+        showGameOverModal(); // Nueva funcion que se encarga de mostrar el modal y reiniciar el juego
         return;
     };
 
@@ -39,7 +75,7 @@ function main(currentTime) {
     draw();
 };
 
-window.requestAnimationFrame(main); // Inicio el loop
+// window.requestAnimationFrame(main); // Inicio el loop
 
 function update() {
     updateSnake();
@@ -56,3 +92,22 @@ function draw() {
 function checkDeath() { // Esta funcion va a fijarse si la serpiente se choca contra una pared o contra si misma
     gameOver = outsideGrid(getSnakeHead()) || snakeIntersection();
 };
+
+function showGameOverModal() { // Funcion que se encarga de mostrar el modal
+    gameOverModal.style.visibility = "visible";
+};
+  
+function hideGameOverModal() { // Funcion que se encarga de esconder el modal
+    gameOverModal.style.visibility = "hidden";
+};
+  
+restartButton.addEventListener("click", () => { // Agrego un eventListener para que cuando se haga click en el boton para reiniciar el juego, se esconda el modal y recarge la pagina
+    hideGameOverModal();
+    window.location = "/";
+});
+
+difficultyButtons.forEach(button => { // Hago un forEach a todos mis botones para agregarles el eventListener con el texto que poseen
+    button.addEventListener("click", () => {
+        selectDifficulty(button.innerText);
+    });
+});
