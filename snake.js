@@ -1,7 +1,7 @@
 import { getInputDirection } from "./input.js";
 
 // export const SNAKE_SPEED = 5; // Este numero va a definir cuantas veces se mueve la serpiente por segundo
-const snakeBody = [{ x: 21, y: 21 }]; // Seteo las coordenadas donde se va a renderizar la serpiente inicialmente. En este caso, como el grid es de 41x41, seteo la serpiente en 21x21 siendo estas coordenadas el medio de la pantalla
+const snakeBody = [{ x: 21, y: 21, rotate: "" }]; // Seteo las coordenadas donde se va a renderizar la serpiente inicialmente. En este caso, como el grid es de 41x41, seteo la serpiente en 21x21 siendo estas coordenadas el medio de la pantalla
 let newSegments = 0; // Determina la cantidad de segmentos iniciales de la serpiente
 
 export function update() {
@@ -14,16 +14,30 @@ export function update() {
     };
 
     // La serpiente se mueve en los ejes x e y segun los inputs que reciba
-    snakeBody[0].x += inputDirection.x;
-    snakeBody[0].y += inputDirection.y;
+    // snakeBody[0].x += inputDirection.x;
+    // snakeBody[0].y += inputDirection.y;
+
+    // Guardo la posicion de head para saber cuando rota y poder aplicarlo a los demas segmentos
+    const head = snakeBody[0];
+    head.x += inputDirection.x;
+    head.y += inputDirection.y;
+    head.rotate = inputDirection.rotate;
 };
 
 export function draw(gameBoard) { // Le paso por parametro donde se va a renderizar
-    snakeBody.forEach(segment => {
+    snakeBody.forEach((segment, index) => {
         const snakeElement = document.createElement("div"); // Creo un div por cada segmento de la serpiente
         snakeElement.style.gridRowStart = segment.y;
         snakeElement.style.gridColumnStart = segment.x;
         snakeElement.classList.add("snake"); // Le agrego la clase que defini en el index.html
+        
+        if (index === 0) { // Agrego un condicional para saber cual es el principio y el final de la serpiente
+            snakeElement.classList.add("head"); // Si el index es 0, le doy el estilo de la cabeza
+        }  // else if (index === snakeBody.length - 1) {
+        //     snakeElement.classList.add("tail"); // Si el index es el ultimo del array, le doy el de la cola
+        // };
+
+        snakeElement.style.transform = segment.rotate; // Tomo el valor de rotate de input.js para actualizar el estilo
         gameBoard.appendChild(snakeElement); // Y por ultimo agrego los elementos de la serpiente al gameBoard donde se va a renderizar
     });
 };

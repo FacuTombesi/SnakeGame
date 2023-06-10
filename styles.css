@@ -36,10 +36,13 @@ span {
 }
 
 button {
-    color: #E100FF;
-    font-weight: 900;
-    background: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
     width: 90px;
     height: 30px;
     cursor: pointer;
@@ -51,7 +54,9 @@ button:hover {
 }
 
 #game_board {
-    background-color: #CCC;
+    background-image: url("./img/customBg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100vmin;
     height: 100vmin;
     display: grid;
@@ -60,13 +65,27 @@ button:hover {
 }
 
 .snake {
-    background-color: hsl(200, 100%, 50%);
-    border: .25vmin solid black;
+    background-image: url("./img/snakeBody.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
+.head {
+    background-image: url("./img/snakeHead.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* .tail {
+    background-image: url("./img/snakeTail.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
 .food {
-    background-color: hsl(50, 100%, 50%);
-    border: .25vmin solid black;
+    background-image: url("./img/foodApple.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .modal {
@@ -92,16 +111,4 @@ button:hover {
     border: 2px solid #E100FF;
     border-radius: 5px;
     text-align: center;
-}
-
-#restartButton {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#restartButton:hover {
-    background-color: #45a049;
 }
