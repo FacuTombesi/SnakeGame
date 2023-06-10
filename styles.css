@@ -75,6 +75,7 @@ button:hover {
     background-repeat: no-repeat;
 }
 
+/* OLD!! -- CSS para la cola */
 /* .tail {
     background-image: url("./img/snakeTail.png");
     background-size: cover;

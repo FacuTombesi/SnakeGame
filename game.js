@@ -3,8 +3,7 @@ import {
     update as updateSnake,
     draw as drawSnake,
     getSnakeHead,
-    snakeIntersection,
-    // SNAKE_SPEED 
+    snakeIntersection
 } from "./snake.js";
 import { 
     update as updateFood,
@@ -53,10 +52,6 @@ function startGame() { // Nueva funcion encargada de iniciar el loop
 // main() es la funcion que se va a encargar del game loop renderizando una y otra vez los frames
 function main(currentTime) {
     if (gameOver) {
-        // if (confirm("You lose. Press OK to restart.")) {
-        //     window.location = "/";
-        // };
-        // return;
         showGameOverModal(); // Nueva funcion que se encarga de mostrar el modal y reiniciar el juego
         return;
     };

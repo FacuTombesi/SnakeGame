@@ -15,9 +15,6 @@ export function update() {
     };
 
     // La serpiente se mueve en los ejes x e y segun los inputs que reciba
-    // snakeBody[0].x += inputDirection.x;
-    // snakeBody[0].y += inputDirection.y;
-
     // Guardo la posicion de head para saber cuando rota y poder aplicarlo a los demas segmentos
     const head = snakeBody[0];
     head.x += inputDirection.x;
@@ -36,7 +33,10 @@ export function draw(gameBoard) { // Le paso por parametro donde se va a renderi
         
         if (index === 0) { // Agrego un condicional para saber cual es el principio y el final de la serpiente
             snakeElement.classList.add("head"); // Si el index es 0, le doy el estilo de la cabeza
-        }  // else if (index === snakeBody.length - 1) {
+        }  
+        
+        // OLD!! -- Logica para la cola
+        // else if (index === snakeBody.length - 1) {
         //     snakeElement.classList.add("tail"); // Si el index es el ultimo del array, le doy el de la cola
         // };
 

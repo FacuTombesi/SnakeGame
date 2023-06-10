@@ -1,5 +1,3 @@
-// let inputDirection = { x: 0, y: 0, rotate: "" };
-// let lastInputDirection = { x: 0, y: 0, rotate: "" };
 let inputDirection = { x: 0, y: 0, rotate: 0 };
 let lastInputDirection = { x: 0, y: 0, rotate: 0 };
 
