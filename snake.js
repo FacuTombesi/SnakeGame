@@ -3,6 +3,7 @@ import { getInputDirection } from "./input.js";
 // export const SNAKE_SPEED = 5; // Este numero va a definir cuantas veces se mueve la serpiente por segundo
 const snakeBody = [{ x: 21, y: 21, rotate: "" }]; // Seteo las coordenadas donde se va a renderizar la serpiente inicialmente. En este caso, como el grid es de 41x41, seteo la serpiente en 21x21 siendo estas coordenadas el medio de la pantalla
 let newSegments = 0; // Determina la cantidad de segmentos iniciales de la serpiente
+let score = 0;
 
 export function update() {
     addSegments();
@@ -25,6 +26,8 @@ export function update() {
 };
 
 export function draw(gameBoard) { // Le paso por parametro donde se va a renderizar
+    gameBoard.innerHTML = "";
+
     snakeBody.forEach((segment, index) => {
         const snakeElement = document.createElement("div"); // Creo un div por cada segmento de la serpiente
         snakeElement.style.gridRowStart = segment.y;
@@ -44,6 +47,8 @@ export function draw(gameBoard) { // Le paso por parametro donde se va a renderi
 
 export function expandSnake(amount) {
     newSegments += amount; // Aumento la cantidad de segmentos cada vez que se expande segun la cantidad que defina
+    score += amount;
+    updateScore();
 };
 
 export function onSnake(position, { ignoreHead = false } = {}) { // Esta funcion va a chequear que la posicion de la serpiente sea igual o no a la de la comida
@@ -71,4 +76,9 @@ export function getSnakeHead() {
 
 export function snakeIntersection() { // Se fija si la serpiente se choca con si misma
     return onSnake(snakeBody[0], { ignoreHead: true }); // En este caso ignoreHead es true ya que si la dejo en false marcaria como que se esta chocando con tu propia cabeza desde el principio y siempre daria game over
+};
+
+function updateScore() {
+    const scoreElement = document.querySelector(".score_num");
+    scoreElement.textContent = score;
 };

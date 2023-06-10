@@ -14,15 +14,15 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    border: 2px solid #E100FF;
+    border: none;
     border-radius: 8px;
     width: 55vh;
     height: 20vh;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: white;
 }
 
 span {
-    color: white;
+    color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 700;
     font-size: 1.2rem;
@@ -49,8 +49,7 @@ button {
 }
 
 button:hover {
-    background-color: white;
-    color: black;
+    background-color: #347536;
 }
 
 #game_board {
@@ -105,10 +104,33 @@ button:hover {
 .modal-content {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.8rem;
-    background-color: rgba(0, 0, 0, 0.85);
-    color: white;
+    background-color: white;
+    color: black;
     padding: 20px;
-    border: 2px solid #E100FF;
+    border: none;
     border-radius: 5px;
     text-align: center;
+}
+
+.modal-content p {
+    font-size: 0.6rem;
+}
+
+.score {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.score_p {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.score_num {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #E100FF;
 }
