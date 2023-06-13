@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SnakeGame</title>
+        <link rel="icon" href="./img/snakegame_project-favicon.png" type="image/x-icon">
         <link href="styles.css" rel="stylesheet">
         <!-- 
             defer: Hace que el script se cargue antes que el body
@@ -13,6 +14,9 @@
         <script src="game.js" defer type="module"></script>
     </head>
     <body>
+        <header>
+            <img src="./img/snakegame_project-thumbnail.png" alt="Mini-Project Snake Game" loading="lazy" />
+        </header>
         <div id="gameOverModal" class="modal">
             <div class="modal-content">
                 <h2>Game Over</h2>
@@ -33,5 +37,19 @@
             </div>
         </div>
         <div id="game_board"></div>
+        <footer>
+            <p class="footer_p">Classic Snake game developed with JavaScript, HTML and CSS.</p>
+            <div class="links">
+                <a href="https://github.com/FacuTombesi/SnakeGame" target="_blank">
+                    <img class="link_logo" src="./img/iconGITHUB(white).png" alt="GitHub Repository" loading="lazy" />
+                </a>
+                <a href="https://www.linkedin.com/in/facundotombesi/" target="_blank">
+                    <img class="link_logo" src="./img/iconLINKEDIN(white).png" alt="LinkedIn" loading="lazy" />
+                </a>
+            </div>
+            <a href="https://ftportfolio.vercel.app/" target="_blank">
+                <img class="portfolio_logo" src="./img/logo(white)_NEW.png" alt="Facundo Tombesi" loading="lazy" />
+            </a>
+        </footer>
     </body>
 </html>
