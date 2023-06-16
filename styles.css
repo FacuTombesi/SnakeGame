@@ -228,18 +228,6 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
-    /* #game_board {
-        visibility: hidden;
-    } */
-
-    /* #responsive_msg {
-        visibility: visible;
-    } */
-
-    /* #difficulty_select {
-        visibility: hidden;
-    } */
-
     #game_board {
         width: 90vmin;
         height: 90vmin;
@@ -251,7 +239,7 @@ footer {
         width: 170px;
         height: 170px;
         margin: 0 auto;
-        background-color: rgba(187, 187, 187, 0.3);
+        background-color: rgba(187, 187, 187, 0.2);
         top: 75%;
         border-radius: 50%;
     }
@@ -260,8 +248,7 @@ footer {
         position: absolute;
         width: 50px;
         height: 50px;
-        background-color: rgba(187, 187, 187, 0.8);
-        /* border-radius: 50%; */
+        background-color: rgba(187, 187, 187, 0.75);
         cursor: pointer;
     }
 
