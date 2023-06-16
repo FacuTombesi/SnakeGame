@@ -14,7 +14,7 @@ import { outsideGrid } from "./grid.js";
 let lastRenderTime = 0; // Sirve para chequear cuando fue la ultima vez que se renderizo
 let gameOver = false;
 // Me traigo el modal y el boton de reinicio a traves de sus IDs
-const gameOverModal = document.getElementById("gameOverModal");
+const gameOverModal = document.getElementById("gameOver_Modal");
 const restartButton = document.getElementById("restartButton");
 const gameBoard = document.getElementById("game_board"); // Selecciono el div que defini como game_board y lo guardo en una constante
 const difficultyButtons = document.querySelectorAll("[difficulty]"); // Selecciono todos los botones con el query difficulty

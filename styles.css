@@ -20,6 +20,36 @@ img {
     height: 15vh;
 }
 
+#responsive_msg {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border: none;
+    border-radius: 8px;
+    width: 40vh;
+    height: 30vh;
+    background-color: white;
+}
+
+.responsive_msg_content {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#responsive_msg p {
+    text-align: center;
+    margin-top: 25px;
+}
+
 #difficulty_select {
     display: flex;
     flex-direction: column;
@@ -116,7 +146,7 @@ button:hover {
     visibility: hidden;
 }
 
-.modal-content {
+.modal_content {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.8rem;
     background-color: white;
@@ -127,7 +157,7 @@ button:hover {
     text-align: center;
 }
 
-.modal-content p {
+.modal_content p {
     font-size: 0.6rem;
 }
 
@@ -179,4 +209,32 @@ footer {
 
 .portfolio_logo {
     height: 2.4rem;
+}
+
+@media only screen and (max-width: 768px) {
+    #game_board {
+        visibility: hidden;
+    }
+
+    #responsive_msg {
+        visibility: visible;
+    }
+
+    #difficulty_select {
+        visibility: hidden;
+    }
+
+    footer {
+        margin-top: 5px;
+    }
+    
+    .footer_p {
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .links {
+        visibility: hidden;
+        position: absolute;
+    }
 }
