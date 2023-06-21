@@ -52,6 +52,22 @@ window.addEventListener("keydown", e => { // addEventListener("keydown") escucha
             if (lastInputDirection.x !== 0) break;
             inputDirection = moveRight;
             break;
+        case "w":
+            if (lastInputDirection.y !== 0) break; 
+            inputDirection = moveUp; 
+            break;
+        case "s":
+            if (lastInputDirection.y !== 0) break;
+            inputDirection = moveDown;
+            break;
+        case "a":
+            if (lastInputDirection.x !== 0) break;
+            inputDirection = moveLeft;
+            break;
+        case "d":
+            if (lastInputDirection.x !== 0) break;
+            inputDirection = moveRight;
+            break;
     }
 });
 

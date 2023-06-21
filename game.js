@@ -20,6 +20,23 @@ const gameBoard = document.getElementById("game_board"); // Selecciono el div qu
 const difficultyButtons = document.querySelectorAll("[difficulty]"); // Selecciono todos los botones con el query difficulty
 let SNAKE_SPEED = 0; // Movi el SNAKE_SPEED al js principal para no tener problemas al intentar modificarlo
 
+window.addEventListener("DOMContentLoaded", function() {
+    var howToPlayContent = document.querySelector(".howToPlay_content");
+    var mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    function handleMediaQuery(mediaQuery) {
+        if (mediaQuery.matches) {
+            howToPlayContent.textContent = "Use the D-pad to move. Eat the food to get points and increase the Snake's size while avoiding hitting the walls or the Snake's body.";
+        }   else {
+            howToPlayContent.textContent = "Use the arrow keys or WASD to move. Eat the food to get points and increase the Snake's size while avoiding hitting the walls or the Snake's body.";
+        }
+    }
+
+    handleMediaQuery(mediaQuery);
+
+    mediaQuery.addEventListener("change", handleMediaQuery);
+});
+
 function selectDifficulty (button) { // Funcion para elegir dificultad a la que le paso por parametro cada boton
     const difficultySelect = document.getElementById("difficulty_select"); // Selecciono por ID al div al que voy a esconder
 
